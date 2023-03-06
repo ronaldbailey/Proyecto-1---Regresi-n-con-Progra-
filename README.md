@@ -1,28 +1,53 @@
 # Proyecto-1---Regresi-n-con-Progra-
 El proyecto consiste en aplicar los conocimientos aprendidos en clase (y apoy´andose de referencias adicionales u´tiles) para crear modelos predictivos de regresi´on lineal uni-variable sencillos 
 
-Este es un código en Python que define una clase llamada "ML" para realizar análisis de datos y visualización en un conjunto de datos de precios de viviendas. Algunas de las principales funciones de la clase son:
-•	npyToPandas: convierte un archivo de tipo .npy a un objeto de tipo DataFrame de Pandas.
-•	separacionData: divide los datos en dos conjuntos, uno para entrenamiento y otro para validación, según una proporción determinada.
-•	hsitograma: genera un histograma para cada columna del conjunto de datos.
-•	corrGrafica: genera una matriz de gráficos de dispersión y histogramas para cada combinación de columnas del conjunto de datos, mostrando la correlación entre ellas.
-La clase ML se inicializa con el directorio del archivo .npy y una proporción de segmentación por defecto de 0.8. Luego, se convierte el archivo .npy en un objeto DataFrame de Pandas y se separan los datos en dos conjuntos de entrenamiento y validación. También se calculan y almacenan las correlaciones para todo el conjunto de datos, así como para los conjuntos de entrenamiento y validación. Además, se generan gráficos de dispersión y histogramas para todas las combinaciones de columnas del conjunto de datos.
 
-Variables:
-•	directorioArchivo: una cadena de caracteres que representa el directorio donde se encuentra el archivo de datos que se va a cargar.
-•	segmentacion: un valor entre 0 y 1 que indica la proporción de datos que se utilizarán para el conjunto de entrenamiento. Por defecto se establece en 0.8, lo que significa que el 80% de los datos se utilizarán para el entrenamiento y el 20% restante para la validación.
-•	datos: un objeto pandas.DataFrame que almacena los datos cargados desde el archivo npy.
-•	entrenamiento: un objeto pandas.DataFrame que almacena los datos que se utilizarán para el entrenamiento.
-•	validacion: un objeto pandas.DataFrame que almacena los datos que se utilizarán para la validación.
-•	VercorrelacionTodo: un objeto pandas.io.formats.style.Styler que muestra una tabla con la matriz de correlación de todos los datos cargados.
-•	VercorrelacionEntrenamiento: un objeto pandas.io.formats.style.Styler que muestra una tabla con la matriz de correlación de los datos de entrenamiento.
-•	VercorrelacionValidacion: un objeto pandas.io.formats.style.Styler que muestra una tabla con la matriz de correlación de los datos de validación.
-•	correlacionTodo: un objeto pandas.DataFrame que almacena la matriz de correlación de todos los datos cargados.
-•	correlacionEntrenamiento: un objeto pandas.DataFrame que almacena la matriz de correlación de los datos de entrenamiento.
-•	correlacionValidacion: un objeto pandas.DataFrame que almacena la matriz de correlación de los datos de validación.
-Funciones:
-•	__init__(): la función de inicialización de la clase. Esta función carga los datos desde el archivo npy, separa los datos en los conjuntos de entrenamiento y validación, y calcula las matrices de correlación y las tablas de estilo para cada conjunto de datos.
-•	npyToPandas(): esta función carga los datos desde un archivo npy y los devuelve como un objeto pandas.DataFrame. La función toma como argumento el directorio del archivo npy y un parámetro booleano mostrar_salida que indica si se debe mostrar la salida de la función.
-•	separacionData(): esta función separa los datos en los conjuntos de entrenamiento y validación. La función toma como argumentos el parámetro de segmentación y un parámetro booleano mostrar_salida que indica si se debe mostrar la salida de la función.
-•	hsitograma(): esta función crea un histograma para cada columna del conjunto de datos que se le pase como argumento. La función toma como argumento el conjunto de datos.
-•	corrGrafica(): esta función crea una matriz de gráficos de dispersión y histogramas para cada combinación de columnas del conjunto de datos que se le pase como argumento. La función toma como argumento el conjunto de datos.
+# ML.py
+
+## Descripción
+Este módulo contiene la clase `ML`, la cual es utilizada para cargar datos de un archivo numpy y realizar diversas operaciones con ellos, como separación en entrenamiento y validación, visualización de histogramas y correlaciones, entre otras.
+
+## Dependencias
+- numpy
+- pandas
+- matplotlib
+- seaborn
+
+## Uso
+Para utilizar la clase `ML`, importa el módulo y crea una instancia de la clase, pasando como parámetro el directorio del archivo numpy y, opcionalmente, la proporción en la que se desea segmentar los datos en entrenamiento y validación:
+
+```python
+from ML import ML
+
+ml = ML('path/to/numpyfile.npy', segmentacion=0.8)
+
+
+Métodos
+npyToPandas(directorioArchivo=None, mostrar_salida=False): Convierte un archivo numpy en un objeto pandas DataFrame y lo devuelve. Si se proporciona el parámetro mostrar_salida=True, se imprimirá en pantalla el DataFrame resultante.
+
+separacionData(segmentacion=None, mostrar_salida=False): Devuelve dos objetos pandas DataFrame, correspondientes a los datos de entrenamiento y validación, respectivamente. Si se proporciona el parámetro mostrar_salida=True, se imprimirán en pantalla las dos tablas resultantes.
+
+histograma(data): Muestra un histograma para cada columna del objeto pandas DataFrame proporcionado como parámetro.
+
+corrGrafica(data): Muestra una matriz de gráficos de dispersión y histogramas para cada combinación de columnas del objeto pandas DataFrame proporcionado como parámetro. También se incluye el valor de correlación correspondiente en cada gráfico.
+
+Atributos
+datos: Objeto pandas DataFrame que contiene todos los datos cargados desde el archivo numpy.
+entrenamiento: Objeto pandas DataFrame que contiene los datos de entrenamiento.
+validacion: Objeto pandas DataFrame que contiene los datos de validación.
+VercorrelacionTodo: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de datos visualizados con un gradiente de color.
+VercorrelacionEntrenamiento: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de entrenamiento visualizados con un gradiente de color.
+VercorrelacionValidacion: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de validacion visualizados con un gradiente de color.
+correlacionTodo: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de datos.
+correlacionEntrenamiento: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de entrenamiento.
+correlacionValidacion: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de validacion.
+Ejemplo
+A continuación se muestra un ejemplo de cómo utilizar la clase ML:
+
+import ML
+
+# Crear una instancia de la clase ML
+ml = ML('path/to/numpyfile.npy', segmentacion=0.8)
+
+# Imprimir los datos de entrenamiento y validación
+print
