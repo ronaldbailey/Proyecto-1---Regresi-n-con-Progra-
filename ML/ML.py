@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+
 class ML:
     
     def __init__(self, directorioArchivo, segmentacion=0.8):
