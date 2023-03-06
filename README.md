@@ -1,8 +1,6 @@
 # Proyecto-1---Regresi-n-con-Progra-
 El proyecto consiste en aplicar los conocimientos aprendidos en clase (y apoy´andose de referencias adicionales u´tiles) para crear modelos predictivos de regresi´on lineal uni-variable sencillos 
 
-
-
 Este es un código en Python que define una clase llamada "ML" para realizar análisis de datos y visualización en un conjunto de datos de precios de viviendas. Algunas de las principales funciones de la clase son:
 •	npyToPandas: convierte un archivo de tipo .npy a un objeto de tipo DataFrame de Pandas.
 •	separacionData: divide los datos en dos conjuntos, uno para entrenamiento y otro para validación, según una proporción determinada.
