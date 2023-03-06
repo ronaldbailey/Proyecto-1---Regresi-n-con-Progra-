@@ -110,3 +110,7 @@ ml = ML('path/to/numpyfile.npy', segmentacion=0.8)
 
 # Imprimir los datos de entrenamiento y validación
 print
+
+
+
+referencia https://www.geeksforgeeks.org/how-to-implement-a-gradient-descent-in-python-to-find-a-local-minimum/
