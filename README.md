@@ -30,17 +30,76 @@ separacionData(segmentacion=None, mostrar_salida=False): Devuelve dos objetos pa
 histograma(data): Muestra un histograma para cada columna del objeto pandas DataFrame proporcionado como parámetro.
 
 corrGrafica(data): Muestra una matriz de gráficos de dispersión y histogramas para cada combinación de columnas del objeto pandas DataFrame proporcionado como parámetro. También se incluye el valor de correlación correspondiente en cada gráfico.
+# Métodos
+npyToPandas(directorioArchivo=None, mostrar_salida=False):
+    """
+    Convierte un archivo numpy en un objeto pandas DataFrame y lo devuelve.
+    Si se proporciona el parámetro mostrar_salida=True, se imprimirá en pantalla el DataFrame resultante.
+    """
+    
+separacionData(segmentacion=None, mostrar_salida=False):
+    """
+    Devuelve dos objetos pandas DataFrame, correspondientes a los datos de entrenamiento y validación, respectivamente.
+    Si se proporciona el parámetro mostrar_salida=True, se imprimirán en pantalla las dos tablas resultantes.
+    """
+    
+histograma(data):
+    """
+    Muestra un histograma para cada columna del objeto pandas DataFrame proporcionado como parámetro.
+    """
+    
+corrGrafica(data):
+    """
+    Muestra una matriz de gráficos de dispersión y histogramas para cada combinación de columnas del objeto pandas DataFrame proporcionado como parámetro.
+    También se incluye el valor de correlación correspondiente en cada gráfico.
+    """
+    
+# Atributos
+datos:
+    """
+    Objeto pandas DataFrame que contiene todos los datos cargados desde el archivo numpy.
+    """
+    
+entrenamiento:
+    """
+    Objeto pandas DataFrame que contiene los datos de entrenamiento.
+    """
+    
+validacion:
+    """
+    Objeto pandas DataFrame que contiene los datos de validación.
+    """
+    
+VercorrelacionTodo:
+    """
+    Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de datos visualizados con un gradiente de color.
+    """
+    
+VercorrelacionEntrenamiento:
+    """
+    Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de entrenamiento visualizados con un gradiente de color.
+    """
+    
+VercorrelacionValidacion:
+    """
+    Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de validacion visualizados con un gradiente de color.
+    """
+    
+correlacionTodo:
+    """
+    Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de datos.
+    """
+    
+correlacionEntrenamiento:
+    """
+    Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de entrenamiento.
+    """
+    
+correlacionValidacion:
+    """
+    Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de validacion.
+    """
 
-Atributos
-datos: Objeto pandas DataFrame que contiene todos los datos cargados desde el archivo numpy.
-entrenamiento: Objeto pandas DataFrame que contiene los datos de entrenamiento.
-validacion: Objeto pandas DataFrame que contiene los datos de validación.
-VercorrelacionTodo: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de datos visualizados con un gradiente de color.
-VercorrelacionEntrenamiento: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de entrenamiento visualizados con un gradiente de color.
-VercorrelacionValidacion: Objeto pandas Styler que contiene una tabla con los valores de correlación entre todas las columnas de validacion visualizados con un gradiente de color.
-correlacionTodo: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de datos.
-correlacionEntrenamiento: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de entrenamiento.
-correlacionValidacion: Objeto pandas DataFrame que contiene los valores de correlación entre todas las columnas de validacion.
 Ejemplo
 A continuación se muestra un ejemplo de cómo utilizar la clase ML:
 
