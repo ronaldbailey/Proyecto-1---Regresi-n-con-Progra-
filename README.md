@@ -1,9 +1,17 @@
 # Proyecto-1---Regresi-n-con-Progra-
 
-- El archivo principal es el 
+- El archivo principal es el: 
 
 ### Proyecto #1 - (Regresión con Progra) 
 https://github.com/ronaldbailey/Proyecto-1---Regresi-n-con-Progra-/blob/main/Proyecto%20%231%20-%20(Regresi%C3%B3n%20con%20Progra).ipynb
+
+
+
+- El archivo en donde se llevaron acabo los experimentos y las pruebas es el: 
+
+### proyecto1.ipynb
+https://github.com/ronaldbailey/Proyecto-1---Regresi-n-con-Progra-/blob/main/proyecto1.ipynb
+
 
 El proyecto consiste en aplicar los conocimientos aprendidos en clase (y apoy´andose de referencias adicionales u´tiles) para crear modelos predictivos de regresi´on lineal uni-variable sencillos 
 
