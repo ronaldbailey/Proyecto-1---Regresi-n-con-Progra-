@@ -84,5 +84,50 @@ class ML:
                     data[data.columns[i]].min()-(data[data.columns[j]].max()-data[data.columns[j]].min())*0.1,
                     data[data.columns[i]].max()+(data[data.columns[j]].max()-data[data.columns[j]].min())*0.1)
     pass
+
+    def entrenar(self,entrenamiento,epochs = 100, learning_rate = 0.001,b0 = 0.1, b1 = 0.2):
+        #los datos de entrenamiento deben venir en pandas la columna  0 es el objetivo a predecir y la co
+        y = entrenamiento.iloc[:,0].values #primeta columna es la variable a predecir
+        x =  pd.DataFrame(entrenamiento.iloc[:,1])#la segunda columna debe ser la variable dependiente
+        x['unos'] = 1 
+        #Aqui voy a ver cada uno de los parametros calculados
+        error_df = pd.DataFrame(columns=["Epoch", "Error","b0","b1"])
+        for i in range(epochs+1):
+            
+            y_pred_dot = np.dot(x.values,[b1,b0])#pd.DataFrame({ 'y_pred_dot':np.dot(x1.values,[b1,b0])})
+            #y_pred_dot = b0 + b1 * x
+            df_y =pd.DataFrame({'y_real':y,'y_pred_dot':y_pred_dot})
+
+            error = np.add(df_y.y_pred_dot,-df_y.y_real)
+            error_medio = np.divide(np.mean(np.power(error,2)),2)
+
+            error_df = pd.concat([error_df, pd.DataFrame({"Epoch": [i], "Error":error_medio, "b0":b0,"b1":b1})])#(1/(2*len(df_y)))*((-df_y.y_real + df_y.y_pred_dot)**2).sum()})])
+            
+            d_error_d_b1=np.mean(np.multiply(error,x[x.columns[0]].values))#(1/(len(df_y)))*((df_y.y_real - df_y.y_pred_dot)*x).sum()
+            d_error_d_b0=np.mean(error)#(1/(len(df_y)))*((df_y.y_real - df_y.y_pred_dot)).sum()
+
+            b1 = b1-learning_rate*d_error_d_b1
+            b0 = b0-learning_rate*d_error_d_b0
+
+            #error_df = pd.concat([error_df, pd.DataFrame({"Epoch": [i], "Error": error_medio })])
+            if i % 10 == 0:
+                print(f" Epoca: {i}, Error Medio: {error_medio}, b0: {b0}, b1: {b1} ")
+        return error_df,error_df.iloc[-1].to_dict()
     
+    def guardarModelo(self,modelo,directorioNombre):
+        modelo.to_csv(directorioNombre,index=False)
+
+    def cargarModelo(self,modelo,directorioNombre):
+        return pd.read_csv(directorioNombre),pd.read_csv(directorioNombre).iloc[-1].to_dict()
+    
+    def getInfo(self,data):
+        rango = data.max() - data.min()
+        # Convierte el rango en un DataFrame y transpónlo
+        rango_df = pd.DataFrame(rango).transpose()
+        # Concatena los DataFrames
+        resultado = pd.concat([data.describe(), rango_df]).rename(index={0: 'Rango'})
+        return resultado
+
+
+        
    
