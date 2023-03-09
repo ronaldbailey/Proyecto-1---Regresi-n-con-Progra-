@@ -127,7 +127,9 @@ class ML:
         # Concatena los DataFrames
         resultado = pd.concat([data.describe(), rango_df]).rename(index={0: 'Rango'})
         return resultado
-
-
-        
-   
+    
+    def proyeccion(self,modelo,evaluacion):
+        x =  pd.DataFrame(evaluacion.iloc[:,1])#la segunda columna debe ser la variable dependiente
+        x['unos'] = 1
+        ypred = np.dot(x.values,[modelo['b1'],modelo['b0']])
+        return pd.DataFrame({ 'x':evaluacion.iloc[:,1],'y_pred':ypred})
