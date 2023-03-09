@@ -48,17 +48,18 @@ class ML:
         return entrenamiento, validacion
     
     
-    def hsitograma(self,data):
+    def hsitograma(self,data,titulo='Histograma'):
         fig, axs = plt.subplots(nrows=len(data.columns), figsize=(20,15))
         for i, columna in enumerate(data.columns):
             sns.histplot(data[columna],ax=axs[i-1],kde=True,color='red')
+        fig.suptitle(titulo, fontsize=32)
         # ajustar espacios entre subplots
         plt.tight_layout()
         pass
 
-    def corrGrafica(self,data):    # Crear una matriz de gráficos de dispersión y histogramas
+    def corrGrafica(self,data,titulo='Correlacion'):    # Crear una matriz de gráficos de dispersión y histogramas
         fig, axs = plt.subplots(len(data.columns), len(data.columns), figsize=(25, 25))
-
+        fig.suptitle(titulo, fontsize=32)
         # Iterar sobre todas las combinaciones de columnas
         for i in range(len(data.columns)):
             for j in range(len(data.columns)):
