@@ -1,5 +1,8 @@
 # Proyecto-1---Regresi-n-con-Progra-
 
+# Video 
+- https://www.tiktok.com/@ing_ronnb/video/7215457552044281094?lang=es
+
 - El archivo principal es el: 
 
 ### Proyecto #1 - (Regresión con Progra) 
